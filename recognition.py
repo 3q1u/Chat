@@ -5,7 +5,7 @@ APP_ID = "51962123"
 API_KEY = "xgjQ4QDI6Y8IBNQjePGSBTEj "
 SECRET_KEY = "8pAEOB69qOzc7p9pZGh40DIUTEWrTnlB "
 client = AipSpeech(APP_ID, API_KEY, SECRET_KEY)
-path = 'voices_record.wav'
+path = 'temp/voices_record.wav'
 
 def record(rate: object = 16000) -> None:
     r = sr.Recognizer()
@@ -13,7 +13,7 @@ def record(rate: object = 16000) -> None:
         print("请说话")
         audio = r.listen(source)
 
-        with open("voices_record.wav", "wb") as f:
+        with open(path, "wb") as f:
             f.write(audio.get_wav_data())
         print("录音结束")
 
